@@ -33,7 +33,7 @@ You need to calibration the camera and copy the generated file in */config* fold
 
 [ArUco: a minimal library for Augmented Reality applications based on OpenCV](http://www.uco.es/investiga/grupos/ava/node/26)
 
-* Launch the package
+### Launch the package
 ```
 roslaunch cam_map_localization camera_marker_detection.launch
 ```
