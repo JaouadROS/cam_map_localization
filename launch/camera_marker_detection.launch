@@ -1,0 +1,20 @@
+<launch>
+
+<include file="$(find pointgrey_camera_driver)/launch/camera.launch"/>
+<!--<include file="$(find usb_cam)/launch/usb_cam-test.launch"/>-->
+<!--<include file="$(find ueye_cam)/launch/bayer_rggb_image_proc.launch"/>-->
+
+<node pkg="cam_map_localization" type="posemapestimation" name="posemapestimation" >
+
+      <param name="TheMarkerMapConfig_path"  value="$(find cam_map_localization)/config/markerset.yml" /> <!--markersmap-->
+      <param name="TheCameraParameters_path" value="$(find cam_map_localization)/config/intrinsics.yml" /> <!--camera param-->
+      <param name="TheMarkerSize"            value="0.158" />  <!--in meter-->
+      
+      <remap from="/posemapestimation/image_raw" to="/camera/image_raw" />
+      <remap from="/posemapestimation/poseStampedDsr" to="/poseStampedDsr" />
+                  
+</node>
+
+<!--<node name="posemapestimation" pkg="cam_map_localization" type="posemapestimation"/>-->
+
+</launch>
